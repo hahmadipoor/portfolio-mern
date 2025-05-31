@@ -1,8 +1,11 @@
 import { useState } from "react";
 import SectionTitle from "../../components/SectionTitle";
-import { courses } from "../../resources/courses";
+import { useSelector } from "react-redux";
 
 function Courses(){
+
+    const {loading, portfolioData}=useSelector(state=>state.root);
+    const {courses} =portfolioData;
 
     const [selectedCourseIndex, setSelectedCourseIndex]=useState(0);
     return (
@@ -22,6 +25,8 @@ function Courses(){
                     </div>
                     <div className="w-2/3 flex flex-col">
                         <h1 className="text-primary text-xl"> {courses[selectedCourseIndex].title}</h1>
+                        <p className=" text-xm">{courses[selectedCourseIndex].description}</p>
+                        <a href={courses[selectedCourseIndex].link} className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600 text-xl">link</a>
                     </div>
                 </div>
             </div>

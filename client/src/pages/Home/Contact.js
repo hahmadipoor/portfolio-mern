@@ -1,22 +1,17 @@
+import {useSelector} from "react-redux";
 import SectionTitle from "../../components/SectionTitle";
 
 function Contact(){
 
-    const user={
-        "name": "Hossein Ahmadipoor",
-        "age": 42,
-        "gender": "Male",
-        "email": "ahmadipoor.h@gmail.com",
-        "mobile": "+989173629258",
-        "country": "Iran"
-    }
+    const {portfolioData}=useSelector(state=>state.root);
+    const {contact}=portfolioData;
 
     return (
         <div>
             <SectionTitle title="Contact Info"/>
             <div className="flex">
                 <div className="p-4 w-1/3">
-                  {Object.entries(user).map(([key, value]) => (
+                  {contact && Object.entries(contact).map(([key, value]) => (
                     <div key={key} className="mb-2">
                         <span className="font-semibold capitalize">{key}:</span> {value}
                     </div>

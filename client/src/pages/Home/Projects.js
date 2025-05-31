@@ -1,9 +1,12 @@
 import { useState } from "react";
 import SectionTitle from "../../components/SectionTitle";
-import { projects } from "../../resources/projects";
+import { useSelector } from "react-redux";
 
 function Projects(){
 
+    const {loading, portfolioData}=useSelector(state=>state.root);
+    const {projects} =portfolioData;
+    
     const [selectedProjectIndex, setSelectedProjectIndex]=useState(0);
     return (
         <div>
@@ -23,6 +26,8 @@ function Projects(){
                     <div className="w-2/3 flex flex-col">
                         <h1 className="text-primary text-xl"> {projects[selectedProjectIndex].title}</h1>
                         <p className="text-xs"> {projects[selectedProjectIndex].description}</p>
+                        <p className="text-xs"> {projects[selectedProjectIndex].technologies}</p>
+                        <a href={projects[selectedProjectIndex].link} className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600 text-xl">link</a>
                     </div>
                 </div>
             </div>

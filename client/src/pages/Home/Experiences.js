@@ -1,6 +1,5 @@
 import { useState } from "react";
 import SectionTitle from "../../components/SectionTitle";
-import { experiences } from "../../resources/expriences";
 import { useSelector } from "react-redux";
 
 function Experiences(){
